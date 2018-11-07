@@ -4,16 +4,54 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-    public float moveSpeed = 0.004f;
- 
-    // Update is called once per frame
-    void Update()
-    {
-        transform.position = Vector2.Lerp(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition), moveSpeed);
+    Vector3 targetPosition;
+    Vector3 lookAtTarget;
+    Quaternion playerRot;
+    float rotSpeed = 5;
+    float speed = 10;
+    bool moving = false;
+    private bool overlap = false;
 
-        Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        difference.Normalize();
-        float rotation_z = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0f, 0f, rotation_z);
+
+    void Update()
+    {   
+        
+            SetTargetPosition();
+       
+        if (moving)
+            Move();
+    }
+
+    private void OnMouseOver()
+    {
+        Debug.Log("MoseOver");
+        overlap = true;
+    }
+    void SetTargetPosition()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        if(Physics.Raycast(ray, out hit, 1000) && overlap == false)
+        {
+            targetPosition = hit.point;
+            this.transform.LookAt(targetPosition);
+
+            lookAtTarget = new Vector3(targetPosition.x - transform.position.x,
+                transform.position.y, 
+                targetPosition.z - transform.position.z);
+            playerRot = Quaternion.LookRotation(lookAtTarget);
+            moving = true;
+            overlap = true;
+        }
+    }
+
+    void Move()
+    {
+        transform.rotation = Quaternion.Slerp(transform.rotation, playerRot, rotSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, targetPosition * 0.85f, speed * Time.deltaTime);
+        if (transform.position == targetPosition)
+            moving = false;
+        overlap = false;
     }
 }
