@@ -12,6 +12,7 @@ namespace GR19
         public Slider slider;
         public bool tuto = true;
         public GameObject defeatText;
+        public Image batteryImage;
 
 
 
@@ -41,7 +42,7 @@ namespace GR19
                 ui.SetActive(false);
             }
 
-            if(slider.value == 0)
+            if(batteryImage.fillAmount == 0)
             {
                 defeatText.SetActive(true);
                 Time.timeScale = 0;

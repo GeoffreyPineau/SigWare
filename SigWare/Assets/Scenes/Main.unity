@@ -1375,6 +1375,7 @@ MonoBehaviour:
   slider: {fileID: 819564643}
   tuto: 1
   defeatText: {fileID: 1527890420}
+  batteryImage: {fileID: 1022460249}
 --- !u!4 &609328493
 Transform:
   m_ObjectHideFlags: 0
@@ -4377,7 +4378,7 @@ MonoBehaviour:
   canMove: 1
   batteryCharge: 0.7
   batteryValue: 0
-  chargingModifier: 300
+  chargingModifier: 250
   respawnPoint: {fileID: 781471860}
   canPlug: 0
   pointLightAnim: {fileID: 414571485}

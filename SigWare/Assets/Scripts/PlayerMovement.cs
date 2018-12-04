@@ -33,8 +33,8 @@ namespace GR19
 
         public float batteryValue = 0.7f;
 
-        [Range(10f, 1000f)]
-        public float chargingModifier = 10f;
+        [Range(100f, 500f)]
+        public float chargingModifier;
 
         public GameObject respawnPoint;
 
@@ -56,7 +56,7 @@ namespace GR19
 
         public void Start()
         {
-            batterySlider.value = batteryCharge;
+            batteryImage.fillAmount = batteryCharge;
             playerTransform = transform;
 
         }
@@ -68,7 +68,7 @@ namespace GR19
 
             playerTransform.eulerAngles = new Vector3(playerTransform.eulerAngles.x, fixedRotation, playerTransform.eulerAngles.z);
 
-            batterySlider.value = batterySlider.value - decreasingValue;     //Diminution du slider
+            batteryImage.fillAmount = batteryImage.fillAmount - decreasingValue;     //Diminution du slider
 
             if (canMove == true && plug == 0)
             {
@@ -124,7 +124,7 @@ namespace GR19
 
             if (canMove == false)
             {
-                batteryImage.fillAmount = Mathf.Abs(mouseX + mouseY) / chargingModifier;      //Retourne la valeur positive du calcul
+                batteryImage.fillAmount = batteryImage.fillAmount + (Mathf.Abs(mouseX + mouseY) / chargingModifier) ;      //Retourne la valeur positive du calcul
                 //Debug.Log(batteryValue);
                 ValueChangeCheck();                             // Appel la maj du Slider
             }
