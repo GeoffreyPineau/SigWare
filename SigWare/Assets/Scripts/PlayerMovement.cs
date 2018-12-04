@@ -49,6 +49,7 @@ namespace GR19
         public Transform plugPosition;
 
         public bool isCharging;
+        public Animator batteryAnim;
 
         [Range(0.01f, 1f)]
         public float respawnMalus;
@@ -89,6 +90,7 @@ namespace GR19
                 lineRenderer.SetPosition(0, transform.position);
                 lineRenderer.SetPosition(1, plugPosition.position);
                 isCharging = true;
+                batteryAnim.SetBool("isCharging", true);
             }
 
             if (Input.GetMouseButtonDown(1) && plug == 1)       //Clic droit pour Démarrer
@@ -102,6 +104,7 @@ namespace GR19
                 lineRenderer.SetPosition(0, plugPosition.position);
                 isCharging = false;
                 nurseAnim.SetBool("isChasing", false);
+                batteryAnim.SetBool("isCharging", false);
             }
 
         }
@@ -124,7 +127,7 @@ namespace GR19
 
             if (canMove == false)
             {
-                batteryImage.fillAmount = batteryImage.fillAmount + (Mathf.Abs(mouseX + mouseY) / chargingModifier) ;      //Retourne la valeur positive du calcul
+                batteryImage.fillAmount = batteryImage.fillAmount + 0.01f; //(Mathf.Abs(mouseX + mouseY) / chargingModifier) ;      //Retourne la valeur positive du calcul
                 //Debug.Log(batteryValue);
                 ValueChangeCheck();                             // Appel la maj du Slider
             }
@@ -140,22 +143,33 @@ namespace GR19
             lineRenderer.SetPosition(0, transform.position);
             lineRenderer.SetPosition(0, plugPosition.position);
             isCharging = false;
+            batteryAnim.SetBool("isCharging", false);
         }
 
         public void ValueChangeCheck()      //MAJ du slider
         {
             //Debug.Log(batterySlider.value);
-            batteryImage.fillAmount = batteryImage.fillAmount + batteryValue;
+            batteryImage.fillAmount = batteryImage.fillAmount + 0.01f ;
         }
 
         private void OnTriggerEnter(Collider other)     //Détecte la collision avec la zone de la prise
         {
             canPlug = true;
+            isCharging = true;
+            ValueChangeCheck();
+        }
+        private void OnTriggerStay(Collider other)     //Détecte la collision avec la zone de la prise
+        {
+            canPlug = true;
+            isCharging = true;
+            ValueChangeCheck();
+            Charging();
         }
 
         private void OnTriggerExit(Collider other)     //Détecte la sortie de la zone de la prise
         {
             canPlug = false;
+            isCharging = false;
         }
 
         public void Respawn()       //Respawn player
