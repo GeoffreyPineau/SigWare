@@ -18,6 +18,7 @@ namespace GR19
         public NavMeshAgent agent;
 
         public Slider batterySlider;
+        public Image batteryImage;
 
         [Range(0.001f, 0.01f)]
         public float decreasingValue;
@@ -39,13 +40,18 @@ namespace GR19
 
         public bool canPlug;
 
-        public Animator anim;
+        public Animator pointLightAnim;
+
+        public Animator nurseAnim;
 
         public LineRenderer lineRenderer;
 
         public Transform plugPosition;
 
         public bool isCharging;
+
+        [Range(0.01f, 1f)]
+        public float respawnMalus;
 
 
         public void Start()
@@ -79,7 +85,7 @@ namespace GR19
                 Debug.Log("plugged");
                 gameObject.GetComponent<NavMeshAgent>().isStopped = true;
                 plug = 1;
-                anim.SetBool("isCharging", true);
+                pointLightAnim.SetBool("isCharging", true);
                 lineRenderer.SetPosition(0, transform.position);
                 lineRenderer.SetPosition(1, plugPosition.position);
                 isCharging = true;
@@ -91,10 +97,11 @@ namespace GR19
                 plug = 0;
                 Debug.Log("unplugged");
                 gameObject.GetComponent<NavMeshAgent>().isStopped = false;
-                anim.SetBool("isCharging", false);
+                pointLightAnim.SetBool("isCharging", false);
                 lineRenderer.SetPosition(0, transform.position);
                 lineRenderer.SetPosition(0, plugPosition.position);
                 isCharging = false;
+                nurseAnim.SetBool("isChasing", false);
             }
 
         }
@@ -117,7 +124,7 @@ namespace GR19
 
             if (canMove == false)
             {
-                batteryValue = Mathf.Abs(mouseX + mouseY) / chargingModifier;      //Retourne la valeur positive du calcul
+                batteryImage.fillAmount = Mathf.Abs(mouseX + mouseY) / chargingModifier;      //Retourne la valeur positive du calcul
                 //Debug.Log(batteryValue);
                 ValueChangeCheck();                             // Appel la maj du Slider
             }
@@ -129,7 +136,7 @@ namespace GR19
             plug = 0;
             Debug.Log("Reset");
             gameObject.GetComponent<NavMeshAgent>().isStopped = false;
-            anim.SetBool("isCharging", false);
+            pointLightAnim.SetBool("isCharging", false);
             lineRenderer.SetPosition(0, transform.position);
             lineRenderer.SetPosition(0, plugPosition.position);
             isCharging = false;
@@ -138,7 +145,7 @@ namespace GR19
         public void ValueChangeCheck()      //MAJ du slider
         {
             //Debug.Log(batterySlider.value);
-            batterySlider.value = batterySlider.value + batteryValue;
+            batteryImage.fillAmount = batteryImage.fillAmount + batteryValue;
         }
 
         private void OnTriggerEnter(Collider other)     //Détecte la collision avec la zone de la prise

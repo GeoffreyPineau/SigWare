@@ -11,11 +11,19 @@ namespace GR19
         public GameObject ui;
         public Slider slider;
         public bool tuto = true;
+        public GameObject defeatText;
+
+
 
 
         // Use this for initialization
         void Start()
         {
+            if(defeatText != null)
+            {
+                defeatText.SetActive(false);
+            }
+
             if (tuto)       //Si tuto, jeu en pause
             {
                 Time.timeScale = 0;
@@ -31,6 +39,12 @@ namespace GR19
             {
                 Time.timeScale = 1;
                 ui.SetActive(false);
+            }
+
+            if(slider.value == 0)
+            {
+                defeatText.SetActive(true);
+                Time.timeScale = 0;
             }
         }
     }

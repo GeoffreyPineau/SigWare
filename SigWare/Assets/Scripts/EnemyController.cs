@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace GR19{
+namespace GR19
+{
 
     public class EnemyController : MonoBehaviour {
 
@@ -17,6 +18,7 @@ namespace GR19{
 
         PlayerMovement playerMovement;
 
+        public Animator anim;
 
 
 
@@ -54,15 +56,18 @@ namespace GR19{
             {
                 enemy.destination = player.transform.position;
                 Debug.Log("Chasse du joueur");
+                anim.SetBool("isChasing", true);
             }
         }
 
         private void OnTriggerEnter(Collider other)
         {
-            if(other.tag == "Player")
+            if(other.tag == "Player" && playerMovement.isCharging == true)
             {
                 playerMovement.Respawn();
                 playerMovement.ResetPlayer();
+                anim.SetBool("isChasing", false);
+                playerMovement.batteryImage.fillAmount = playerMovement.batteryImage.fillAmount - playerMovement.respawnMalus;
             }
         }
     }
