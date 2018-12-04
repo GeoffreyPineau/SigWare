@@ -16,6 +16,9 @@ public class PlayerMovement : MonoBehaviour {
 
     public Slider batterySlider;
 
+    [Range(0.001f, 0.01f)]
+    public float decreasingValue;
+
     public float speed;
 
     public bool canMove;
@@ -26,9 +29,15 @@ public class PlayerMovement : MonoBehaviour {
 
     public float batteryValue = 0.7f;
 
+    [Range(10f, 1000f)]
+    public float chargingModifier = 10f;
+
     public bool canPlug;
 
     public Animator anim;
+
+    public LineRenderer lineRenderer;
+    public Transform plugPosition;
 
 
     public void Start()
@@ -36,6 +45,7 @@ public class PlayerMovement : MonoBehaviour {
         //batterySlider.onValueChanged.AddListener(delegate { ValueChangeCheck(); });
         batterySlider.value = batteryCharge;
         playerTransform = transform;
+
     }
 
     void Update()
@@ -45,7 +55,7 @@ public class PlayerMovement : MonoBehaviour {
 
         playerTransform.eulerAngles = new Vector3(playerTransform.eulerAngles.x, fixedRotation, playerTransform.eulerAngles.z);
 
-        batterySlider.value = batterySlider.value - 0.001f;     //Diminution du slider
+        batterySlider.value = batterySlider.value - decreasingValue;     //Diminution du slider
 
         if (canMove == true && plug == 0)
         {
@@ -63,6 +73,9 @@ public class PlayerMovement : MonoBehaviour {
             gameObject.GetComponent<NavMeshAgent>().isStopped = true;
             plug = 1;
             anim.SetBool("isCharging", true);
+            
+            lineRenderer.SetPosition(0, transform.position);
+            lineRenderer.SetPosition(1, plugPosition.position);
         }
 
         if (Input.GetMouseButtonDown(1) && plug == 1)       //Clic droit pour Démarrer
@@ -72,6 +85,8 @@ public class PlayerMovement : MonoBehaviour {
             Debug.Log("unplugged");
             gameObject.GetComponent<NavMeshAgent>().isStopped = false;
             anim.SetBool("isCharging", false);
+            lineRenderer.SetPosition(0, transform.position);
+            lineRenderer.SetPosition(0, plugPosition.position);
         }
 
     }
@@ -94,17 +109,17 @@ public class PlayerMovement : MonoBehaviour {
 
         if (canMove == false)
         {
-            batteryValue = Mathf.Abs(mouseX + mouseY);      //Retourne la valeur positive du calcul
+            batteryValue = Mathf.Abs(mouseX + mouseY) / chargingModifier;      //Retourne la valeur positive du calcul
             Debug.Log(batteryValue);
-            //ValueChangeCheck();
+            ValueChangeCheck();                             // Appel la maj du Slider
         }
     }
 
-    /*public void ValueChangeCheck()      //MAJ du slider
+    public void ValueChangeCheck()      //MAJ du slider
     {
         Debug.Log(batterySlider.value);
-        batterySlider.value = batteryValue;
-    }*/
+        batterySlider.value = batterySlider.value + batteryValue;
+    }
 
     private void OnTriggerEnter(Collider other)     //Détecte la collision avec la zone de la prise
     {
