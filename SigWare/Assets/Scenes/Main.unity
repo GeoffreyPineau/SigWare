@@ -2950,6 +2950,7 @@ GameObject:
   - component: {fileID: 1357626087}
   - component: {fileID: 1357626089}
   - component: {fileID: 1357626088}
+  - component: {fileID: 1357626090}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -3011,6 +3012,24 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1357626086}
   m_CullTransparentMesh: 0
+--- !u!95 &1357626090
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1357626086}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 306cb74a94c83f34b9d500a161f47760, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1454295090
 GameObject:
   m_ObjectHideFlags: 0
@@ -4386,6 +4405,7 @@ MonoBehaviour:
   lineRenderer: {fileID: 1317202514}
   plugPosition: {fileID: 414571483}
   isCharging: 0
+  batteryAnim: {fileID: 1357626090}
   respawnMalus: 0.25
 --- !u!54 &1858719670
 Rigidbody:
