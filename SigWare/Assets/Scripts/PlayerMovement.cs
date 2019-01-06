@@ -11,6 +11,8 @@ namespace GR19
 
         public Transform playerTransform;
 
+        public Rigidbody rb;
+
         public float fixedRotation = 5f;
 
         public Camera cam;
@@ -24,6 +26,8 @@ namespace GR19
         public float decreasingValue;
 
         public float speed;
+
+        public float thrust;
 
         public bool canMove;
 
@@ -59,6 +63,7 @@ namespace GR19
         {
             batteryImage.fillAmount = batteryCharge;
             playerTransform = transform;
+            
 
         }
 
@@ -73,9 +78,23 @@ namespace GR19
 
             if (canMove == true && plug == 0)
             {
+                if(Input.GetKey("mouse 0"))
+                {
+                    StartCoroutine(Dash());
+                }
                 PlayerMovementNav();
                 Debug.Log("is moving");
             }
+
+
+        }
+
+        private IEnumerator Dash()
+        {
+            agent.speed = thrust;       //Set la speed du navMeshAgent a la valeur de thrust
+            Debug.Log("DASH");
+            yield return new WaitForSeconds(0.12f);
+            agent.speed = 6;            // Reset la valeur du navMeshAgent.speed
         }
 
         private void PlugUnplug()
