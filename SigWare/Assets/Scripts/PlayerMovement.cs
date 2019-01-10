@@ -72,7 +72,7 @@ namespace GR19
 
         void Update()
         {
-            PlugUnplug();       //Fonction stop/démarrer
+            //PlugUnplug();       //Fonction stop/démarrer
             //Charging();         //Fonction rechargement
             Debug.Log(isCharging);
             //playerTransform.eulerAngles = new Vector3(playerTransform.eulerAngles.x, fixedRotation, playerTransform.eulerAngles.z);
