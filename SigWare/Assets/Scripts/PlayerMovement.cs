@@ -66,15 +66,15 @@ namespace GR19
         {
             batteryImage.fillAmount = batteryCharge;
             playerTransform = transform;
-            
+            isCharging = false;
 
         }
 
         void Update()
         {
             PlugUnplug();       //Fonction stop/démarrer
-            Charging();         //Fonction rechargement
-
+            //Charging();         //Fonction rechargement
+            Debug.Log(isCharging);
             //playerTransform.eulerAngles = new Vector3(playerTransform.eulerAngles.x, fixedRotation, playerTransform.eulerAngles.z);
 
             batteryImage.fillAmount = batteryImage.fillAmount - decreasingValue;     //Diminution du slider
@@ -111,7 +111,7 @@ namespace GR19
                 pointLightAnim.SetBool("isCharging", true);
                 lineRenderer.SetPosition(0, transform.position);
                 lineRenderer.SetPosition(1, plugPosition.position);
-                isCharging = true;
+                //isCharging = true;
                 batteryAnim.SetBool("isCharging", true);
             }
 
@@ -156,15 +156,19 @@ namespace GR19
 
         private void Charging()
         {
-            float mouseX = Input.GetAxis("Mouse X");
-            float mouseY = Input.GetAxis("Mouse Y");
+            //float mouseX = Input.GetAxis("Mouse X");
+            //float mouseY = Input.GetAxis("Mouse Y");
 
-            if (canMove == false)
+            batteryImage.fillAmount = batteryImage.fillAmount + 0.001f; //(Mathf.Abs(mouseX + mouseY) / chargingModifier) ;      //Retourne la valeur positive du calcul
+            Debug.Log("charging");
+            ValueChangeCheck();                             // Appel la maj du Slider   
+
+            /*if (canMove == false)
             {
                 batteryImage.fillAmount = batteryImage.fillAmount + 0.01f; //(Mathf.Abs(mouseX + mouseY) / chargingModifier) ;      //Retourne la valeur positive du calcul
                 //Debug.Log(batteryValue);
                 ValueChangeCheck();                             // Appel la maj du Slider
-            }
+            }*/
         }
 
         public void ResetPlayer()
@@ -182,7 +186,7 @@ namespace GR19
         public void ValueChangeCheck()      //MAJ du slider
         {
             //Debug.Log(batterySlider.value);
-            batteryImage.fillAmount = batteryImage.fillAmount + 0.01f ;
+            batteryImage.fillAmount = batteryImage.fillAmount + 0.001f;
         }
 
         private void OnTriggerEnter(Collider other)     //Détecte la collision avec la zone de la prise
@@ -190,6 +194,7 @@ namespace GR19
             canPlug = true;
             isCharging = true;
             ValueChangeCheck();
+            Charging();
         }
         private void OnTriggerStay(Collider other)     //Détecte la collision avec la zone de la prise
         {

@@ -9,11 +9,11 @@ namespace GR19
     {
         public GameManager gameManager;
         public Slider slider;
-        public float time = 30f;
+        public float time = 20f;
 
         void Start()
         {
-            slider.maxValue = 30f;
+            slider.maxValue = 20f;
             slider.minValue = 0f;
         }
 

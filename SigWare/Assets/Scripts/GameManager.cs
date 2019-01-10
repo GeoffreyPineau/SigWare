@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 namespace GR19
 {
@@ -48,6 +49,11 @@ namespace GR19
             if(debug == true)
             {
                 batteryImage.fillAmount = 100;
+                if(Input.GetKeyDown (KeyCode.R))
+                {
+                    SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+                    Debug.Log("Reload");
+                }
             }
 
             if(batteryImage.fillAmount == 0)
@@ -55,6 +61,8 @@ namespace GR19
                 defeatText.SetActive(true);
                 Time.timeScale = 0;
             }
+
+
         }
 
         public void Victory()
