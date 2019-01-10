@@ -27,6 +27,7 @@ namespace GR19
             nurseTransform = transform;
             enemy = GetComponent<NavMeshAgent>();
             GotoNextPoint();
+            playerMovement.isCharging = false;
         }
 
         void GotoNextPoint()

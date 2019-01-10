@@ -10,6 +10,7 @@ namespace GR19
     {
 
         public GameObject player;
+        public GameObject nurse;
         public Transform playerTransform;
 
         public Rigidbody rb;
@@ -191,17 +192,27 @@ namespace GR19
 
         private void OnTriggerEnter(Collider other)     //Détecte la collision avec la zone de la prise
         {
-            canPlug = true;
-            isCharging = true;
-            ValueChangeCheck();
-            Charging();
+            if(other != nurse)
+            {
+                canPlug = true;
+                isCharging = true;
+                ValueChangeCheck();
+                Charging();
+                Debug.Log("collider1");
+            }
+            
         }
         private void OnTriggerStay(Collider other)     //Détecte la collision avec la zone de la prise
         {
-            canPlug = true;
-            isCharging = true;
-            ValueChangeCheck();
-            Charging();
+            if (other != nurse)
+            {
+                canPlug = true;
+                isCharging = true;
+                ValueChangeCheck();
+                Charging();
+                Debug.Log("collider2");
+            }
+                
         }
 
         private void OnTriggerExit(Collider other)     //Détecte la sortie de la zone de la prise
