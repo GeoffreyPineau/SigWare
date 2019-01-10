@@ -9,6 +9,7 @@ namespace GR19
     public class PlayerMovement : MonoBehaviour
     {
 
+        public GameObject player;
         public Transform playerTransform;
 
         public Rigidbody rb;
@@ -31,6 +32,8 @@ namespace GR19
 
         public bool canMove;
 
+        private bool dashing;
+
         private int plug = 0;
 
         public float batteryCharge = 0.7f;
@@ -52,7 +55,7 @@ namespace GR19
 
         public Transform plugPosition;
 
-        public bool isCharging;
+        public bool isCharging = false;
         public Animator batteryAnim;
 
         [Range(0.01f, 1f)]
@@ -72,7 +75,7 @@ namespace GR19
             PlugUnplug();       //Fonction stop/démarrer
             Charging();         //Fonction rechargement
 
-            playerTransform.eulerAngles = new Vector3(playerTransform.eulerAngles.x, fixedRotation, playerTransform.eulerAngles.z);
+            //playerTransform.eulerAngles = new Vector3(playerTransform.eulerAngles.x, fixedRotation, playerTransform.eulerAngles.z);
 
             batteryImage.fillAmount = batteryImage.fillAmount - decreasingValue;     //Diminution du slider
 
@@ -81,9 +84,9 @@ namespace GR19
                 if(Input.GetKey("mouse 0"))
                 {
                     StartCoroutine(Dash());
+                    dashing = true;
                 }
                 PlayerMovementNav();
-                Debug.Log("is moving");
             }
 
 
@@ -92,8 +95,8 @@ namespace GR19
         private IEnumerator Dash()
         {
             agent.speed = thrust;       //Set la speed du navMeshAgent a la valeur de thrust
-            Debug.Log("DASH");
             yield return new WaitForSeconds(0.12f);
+            dashing = false;
             agent.speed = 6;            // Reset la valeur du navMeshAgent.speed
         }
 
@@ -101,8 +104,8 @@ namespace GR19
         {
             if (Input.GetMouseButtonDown(0) && plug == 0 && canPlug == true)       //Clic gauche pour Stop
             {
-                canMove = false;
-                Debug.Log("plugged");
+                //canMove = false;
+                //Debug.Log("plugged");
                 gameObject.GetComponent<NavMeshAgent>().isStopped = true;
                 plug = 1;
                 pointLightAnim.SetBool("isCharging", true);
@@ -114,9 +117,9 @@ namespace GR19
 
             if (Input.GetMouseButtonDown(1) && plug == 1)       //Clic droit pour Démarrer
             {
-                canMove = true;
+                //canMove = true;
                 plug = 0;
-                Debug.Log("unplugged");
+                //Debug.Log("unplugged");
                 gameObject.GetComponent<NavMeshAgent>().isStopped = false;
                 pointLightAnim.SetBool("isCharging", false);
                 lineRenderer.SetPosition(0, transform.position);
@@ -135,7 +138,19 @@ namespace GR19
 
             if (Physics.Raycast(ray, out hit))
             {
-                agent.SetDestination(hit.point);
+                if(hit.collider.gameObject != player)
+                {
+                    if(dashing == false)
+                    {
+                        agent.speed = 6;
+                        agent.SetDestination(hit.point);
+                    }
+                   
+                }
+                if (hit.collider.gameObject == player)
+                {
+                    agent.speed = 0;
+                }
             }
         }
 
@@ -156,7 +171,6 @@ namespace GR19
         {
             canMove = true;
             plug = 0;
-            Debug.Log("Reset");
             gameObject.GetComponent<NavMeshAgent>().isStopped = false;
             pointLightAnim.SetBool("isCharging", false);
             lineRenderer.SetPosition(0, transform.position);

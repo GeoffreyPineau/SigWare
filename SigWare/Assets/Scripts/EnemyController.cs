@@ -16,7 +16,7 @@ namespace GR19
         public Transform[] points;
         private int destPoint = 0;
 
-        PlayerMovement playerMovement;
+        public PlayerMovement playerMovement;
 
         public Animator anim;
 
@@ -27,22 +27,21 @@ namespace GR19
             nurseTransform = transform;
             enemy = GetComponent<NavMeshAgent>();
             GotoNextPoint();
-            playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
-
         }
 
         void GotoNextPoint()
         {
-            // Return s'il n'y a pas de point de Setup
-            if (points.Length == 0)
+            Debug.Log("Patrouille");
+            
+            if (points.Length == 0)     // Return s'il n'y a pas de point de Setup
                 return;
 
-            // Déplace la nurse vers la destination
-            enemy.destination = points[destPoint].position;
+            
+            enemy.destination = points[destPoint].position;     // Déplace la nurse vers la destination
 
-            // Choisi le prochain point dans l'array
-            // Boucle jusqu'au début 
-            destPoint = (destPoint + 1) % points.Length;
+            
+            destPoint = (destPoint + 1) % points.Length;           // Choisi le prochain point dans l'array
+                                                                   // Boucle jusqu'au début 
         }
 
         void Update() {
@@ -62,12 +61,14 @@ namespace GR19
 
         private void OnTriggerEnter(Collider other)
         {
-            if(other.tag == "Player" && playerMovement.isCharging == true)
+            if(playerMovement.isCharging == true)
             {
                 playerMovement.Respawn();
                 playerMovement.ResetPlayer();
                 anim.SetBool("isChasing", false);
-                playerMovement.batteryImage.fillAmount = playerMovement.batteryImage.fillAmount - playerMovement.respawnMalus;
+                Debug.Log("Ne chase plus");
+                //playerMovement.batteryImage.fillAmount = playerMovement.batteryImage.fillAmount - playerMovement.respawnMalus;
+                GotoNextPoint();
             }
         }
     }

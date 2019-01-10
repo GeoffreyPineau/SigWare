@@ -12,8 +12,11 @@ namespace GR19
         public Slider slider;
         public bool tuto = true;
         public GameObject defeatText;
+        public GameObject victoryText;
         public Image batteryImage;
+        public bool debug;
 
+        TimerController timeControl;
 
 
 
@@ -42,7 +45,27 @@ namespace GR19
                 ui.SetActive(false);
             }
 
+            if(debug == true)
+            {
+                batteryImage.fillAmount = 100;
+            }
+
             if(batteryImage.fillAmount == 0)
+            {
+                defeatText.SetActive(true);
+                Time.timeScale = 0;
+            }
+        }
+
+        public void Victory()
+        {
+            if (batteryImage.fillAmount > 0)
+            {
+                victoryText.SetActive(true);
+                Time.timeScale = 0;
+                Debug.Log("C'est gagné");
+            }
+            else
             {
                 defeatText.SetActive(true);
                 Time.timeScale = 0;

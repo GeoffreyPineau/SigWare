@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Plug
   - Enemy
+  - plug
   layers:
   - Default
   - TransparentFX

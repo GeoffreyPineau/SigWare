@@ -7,7 +7,7 @@ namespace GR19
 {
     public class TimerController : MonoBehaviour
     {
-
+        public GameManager gameManager;
         public Slider slider;
         public float time = 30f;
 
@@ -21,6 +21,12 @@ namespace GR19
         {
             time -= Time.deltaTime;
             slider.value = time;
+
+            if (slider.value <= 0)
+            {
+                gameManager.Victory();
+                Debug.Log("Victory Time Controller Script !");
+            }
         }
     }
 }
