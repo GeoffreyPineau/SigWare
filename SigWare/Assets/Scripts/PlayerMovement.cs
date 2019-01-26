@@ -62,6 +62,8 @@ namespace GR19
         [Range(0.01f, 1f)]
         public float respawnMalus;
 
+        public ParticleSystem dustDash;
+
 
         public void Start()
         {
@@ -99,6 +101,7 @@ namespace GR19
             yield return new WaitForSeconds(0.12f);
             dashing = false;
             agent.speed = 6;            // Reset la valeur du navMeshAgent.speed
+            dustDash.Play();
         }
 
         private void PlugUnplug()
