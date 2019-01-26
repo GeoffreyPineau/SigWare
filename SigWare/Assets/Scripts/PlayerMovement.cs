@@ -100,7 +100,7 @@ namespace GR19
             agent.speed = thrust;       //Set la speed du navMeshAgent a la valeur de thrust
             yield return new WaitForSeconds(0.12f);
             dashing = false;
-            agent.speed = 6;            // Reset la valeur du navMeshAgent.speed
+            agent.speed = 4.5f ;            // Reset la valeur du navMeshAgent.speed
             dustDash.Play();
         }
 
@@ -146,7 +146,7 @@ namespace GR19
                 {
                     if(dashing == false)
                     {
-                        agent.speed = 6;
+                        //agent.speed = 6;
                         agent.SetDestination(hit.point);
                     }
                    
