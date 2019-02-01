@@ -146,7 +146,7 @@ namespace GR19
                 {
                     if(dashing == false)
                     {
-                        //agent.speed = 6;
+                        agent.speed = 4.5f;
                         agent.SetDestination(hit.point);
                     }
                    
