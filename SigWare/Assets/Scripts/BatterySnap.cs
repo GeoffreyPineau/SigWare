@@ -9,6 +9,7 @@ namespace GR19
     {
 
         public Slider batterySlide;
+        public GameObject plugObject;
 
         // Use this for initialization
         void Start()
@@ -21,6 +22,9 @@ namespace GR19
         {
             Vector3 batteryPos = Camera.main.WorldToScreenPoint(this.transform.position);
             batterySlide.transform.position = batteryPos;
+
+            Vector3 plugPos = Camera.main.WorldToScreenPoint(this.transform.position);
+            plugObject.transform.position = batteryPos;
         }
     }
 }
