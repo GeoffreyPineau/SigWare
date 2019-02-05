@@ -47,7 +47,7 @@ namespace GR19
 
         void Update() {
             //enemy.destination = player.transform.position;        //Fait que la nurse chasse le player
-            nurseTransform.eulerAngles = new Vector3(nurseTransform.eulerAngles.x, fixedRotation, nurseTransform.eulerAngles.z);
+            //nurseTransform.eulerAngles = new Vector3(nurseTransform.eulerAngles.x, fixedRotation, nurseTransform.eulerAngles.z);
 
             if (!enemy.pathPending && enemy.remainingDistance < 0.5f)
                 GotoNextPoint();
