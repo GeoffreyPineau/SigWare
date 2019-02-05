@@ -29,32 +29,19 @@ namespace GR19
         public EnemyController enemyController;
 
 
-
-        // Use this for initialization
         void Start()
         {
             if (defeatText != null)
             {
                 defeatText.SetActive(false);
             }
-
-            if (tuto)       //Si tuto, jeu en pause
-            {
-                //tutoAnim.SetInteger("State", 1);
-            }
-
-
         }
 
-        // Update is called once per frame
         void Update()
         {
-            //Debug.Log(batteryImage.fillAmount);
             if (batteryImage.fillAmount >= 0.85f)     //Si amount batteryImage > 85%
             {
                 tutoAnim.SetInteger("State", 1);
-                //Debug.Log("State = 1");
-                //Debug.Log("changement Anim tuto");
                 nurse.SetActive(true);
                 enemyController.NurseAppear();
                 StartCoroutine(TimerAppear());

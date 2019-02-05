@@ -95,11 +95,6 @@ namespace GR19
 
         void Update()
         {
-            //PlugUnplug();       //Fonction stop/démarrer
-            //Charging();         //Fonction rechargement
-            //Debug.Log(isCharging);
-            //playerTransform.eulerAngles = new Vector3(playerTransform.eulerAngles.x, fixedRotation, playerTransform.eulerAngles.z);
-
             batteryImage.fillAmount = batteryImage.fillAmount - decreasingValue;     //Diminution du slider
 
             if (canMove == true && plug == 0)
@@ -116,7 +111,6 @@ namespace GR19
             {
                 vignette.intensity.value = vignettage + 0.01f;
                 vignettage = vignettage + 0.01f;
-                //Debug.Log(vignettage);
             }
 
             if(vignettage >= 1)
@@ -140,22 +134,17 @@ namespace GR19
         {
             if (Input.GetMouseButtonDown(0) && plug == 0 && canPlug == true)       //Clic gauche pour Stop
             {
-                //canMove = false;
-                //Debug.Log("plugged");
                 gameObject.GetComponent<NavMeshAgent>().isStopped = true;
                 plug = 1;
                 pointLightAnim.SetBool("isCharging", true);
                 lineRenderer.SetPosition(0, transform.position);
                 lineRenderer.SetPosition(1, plugPosition.position);
-                //isCharging = true;
                 batteryAnim.SetBool("isCharging", true);
             }
 
             if (Input.GetMouseButtonDown(1) && plug == 1)       //Clic droit pour Démarrer
             {
-                //canMove = true;
                 plug = 0;
-                //Debug.Log("unplugged");
                 gameObject.GetComponent<NavMeshAgent>().isStopped = false;
                 pointLightAnim.SetBool("isCharging", false);
                 lineRenderer.SetPosition(0, transform.position);
@@ -194,36 +183,14 @@ namespace GR19
         {
 
             batteryImage.fillAmount = batteryImage.fillAmount + 0.001f; //(Mathf.Abs(mouseX + mouseY) / chargingModifier) ;      //Retourne la valeur positive du calcul
-            //Debug.Log("charging");
             
             ValueChangeCheck();                             // Appel la maj du Slider   
-
-            /*if (canMove == false)
-            {
-                batteryImage.fillAmount = batteryImage.fillAmount + 0.01f; //(Mathf.Abs(mouseX + mouseY) / chargingModifier) ;      //Retourne la valeur positive du calcul
-                //Debug.Log(batteryValue);
-                ValueChangeCheck();                             // Appel la maj du Slider
-            }*/
         }
-
-        /*public void ResetPlayer()
-        {
-            canMove = true;
-            plug = 0;
-            gameObject.GetComponent<NavMeshAgent>().isStopped = false;
-            pointLightAnim.SetBool("isCharging", false);
-            lineRenderer.SetPosition(0, transform.position);
-            lineRenderer.SetPosition(0, plugPosition.position);
-            isCharging = false;
-            batteryAnim.SetBool("isCharging", false);
-        }*/
 
         public void ValueChangeCheck()      //MAJ du slider
         {
-            //Debug.Log(batterySlider.value);
             batteryImage.fillAmount = batteryImage.fillAmount + 0.001f;
             isCharging = true;
-            //Debug.Log("Nurse chasing");
         }
 
         private void OnTriggerEnter(Collider other)     //Détecte la collision avec la zone de la prise
@@ -231,14 +198,10 @@ namespace GR19
             if(other != nurse && other != ground)
             {
                 canPlug = true;
-                //isCharging = true;
-                //ValueChangeCheck();
                 Charging();
-                //Debug.Log("collider1");
                 if(other == plug1)
                 {
                     plugAnim.SetInteger("State", 1);
-                    //Debug.Log("Anim plug material");
                 }
             }
 
@@ -250,16 +213,13 @@ namespace GR19
             if (other != nurse && other != ground)
             {
                 canPlug = true;
-                //isCharging = true;
                 ValueChangeCheck();
                 Charging();
-                //Debug.Log("collider2");
             }
 
             if(other.name == "DamageCollider")
             {
                 nurseCollided = true;
-                //Debug.Log("nurse collided = true");
             }
                 
         }
@@ -272,7 +232,6 @@ namespace GR19
             if(other.name == "DamageCollider")
             {
                 nurseCollided = false;
-                //Debug.Log("nurse collided = false");
                 vignette.intensity.value = 0;
                 vignettage = 0;
 

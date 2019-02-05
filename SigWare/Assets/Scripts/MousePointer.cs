@@ -25,7 +25,6 @@ namespace GR19
                 if (hit.collider.gameObject == plugs)
                 {
                     Cursor.SetCursor(chargingTexture, hotSpot, curMode);
-                    //Debug.Log("chargingMouseCursor");
                 }
             }
         }
@@ -33,7 +32,6 @@ namespace GR19
         void OnMouseExit()
         {
             Cursor.SetCursor(defaultTexture, hotSpot, curMode);
-            //Debug.Log("RunningMouseCursor");
         }
     }
 }

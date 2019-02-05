@@ -26,7 +26,6 @@ namespace GR19
             if (slider.value <= 0)
             {
                 gameManager.Victory();
-                //Debug.Log("Victory Time Controller Script !");
             }
 
             if(slider.value  <= 8)

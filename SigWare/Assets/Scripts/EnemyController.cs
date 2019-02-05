@@ -23,11 +23,6 @@ namespace GR19
 
         public bool raging;
 
-
-        
-
-
-
         void Start() {
             nurseTransform = transform;
             enemy = GetComponent<NavMeshAgent>();
@@ -37,23 +32,15 @@ namespace GR19
 
         void GotoNextPoint()
         {
-            //Debug.Log("Patrouille");
-            
             if (points.Length == 0)     // Return s'il n'y a pas de point de Setup
                 return;
 
-            
             enemy.destination = points[destPoint].position;     // Déplace la nurse vers la destination
-            //Debug.Log("nurse GoToNextPoint");
            
-            
-            destPoint = (destPoint + 1) % points.Length;           // Choisi le prochain point dans l'array
-                                                                   // Boucle jusqu'au début 
+            destPoint = (destPoint + 1) % points.Length;           // Choisi le prochain point dans l'array                                                    // Boucle jusqu'au début 
         }
 
         void Update() {
-            //enemy.destination = player.transform.position;        //Fait que la nurse chasse le player
-            //nurseTransform.eulerAngles = new Vector3(nurseTransform.eulerAngles.x, fixedRotation, nurseTransform.eulerAngles.z);
 
             if(raging == false)
             {
@@ -63,9 +50,7 @@ namespace GR19
                 if (playerMovement.isCharging == true)
                 {
                     enemy.destination = player.transform.position;
-                    //Debug.Log("Chasse du joueur");
                     anim.SetBool("isChasing", true);
-                    //Debug.Log("Nurse is chasing = true");
                 }
             }
             
@@ -81,14 +66,7 @@ namespace GR19
             if(playerMovement.isCharging == true && other == player)
             {
                 playerMovement.Respawn();
-                
-               // Debug.Log("Respawn player");
                 anim.SetBool("isChasing", false);
-
-                //playerMovement.ResetPlayer();
-                //Debug.Log("Nurse is chasing = false");
-                //Debug.Log("Ne chase plus");
-                //playerMovement.batteryImage.fillAmount = playerMovement.batteryImage.fillAmount - playerMovement.respawnMalus;
                 GotoNextPoint();
             }
         }
