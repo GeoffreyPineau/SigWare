@@ -799,6 +799,10 @@ Prefab:
       propertyPath: m_Name
       value: Lit04
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 05175a4e6deee1947bcd447fc9d9a36a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05175a4e6deee1947bcd447fc9d9a36a, type: 3}
   m_IsPrefabAsset: 0
@@ -3286,6 +3290,10 @@ Prefab:
       propertyPath: m_Name
       value: Lit05
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 05175a4e6deee1947bcd447fc9d9a36a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05175a4e6deee1947bcd447fc9d9a36a, type: 3}
   m_IsPrefabAsset: 0
@@ -3440,7 +3448,7 @@ GameObject:
   - component: {fileID: 686879387}
   - component: {fileID: 686879386}
   m_Layer: 5
-  m_Name: TextMeshPro Text
+  m_Name: KeepCharging
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3492,8 +3500,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 16777215
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0}
   m_enableVertexGradient: 0
   m_fontColorGradient:
     topLeft: {r: 1, g: 1, b: 1, a: 1}
@@ -4972,6 +4980,10 @@ Prefab:
       propertyPath: m_Name
       value: Lit03
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 05175a4e6deee1947bcd447fc9d9a36a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05175a4e6deee1947bcd447fc9d9a36a, type: 3}
   m_IsPrefabAsset: 0
@@ -5657,6 +5669,10 @@ Prefab:
     - target: {fileID: 400004, guid: 05175a4e6deee1947bcd447fc9d9a36a, type: 3}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 05175a4e6deee1947bcd447fc9d9a36a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05175a4e6deee1947bcd447fc9d9a36a, type: 3}
@@ -7166,7 +7182,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1534799562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8218,6 +8234,10 @@ Prefab:
     - target: {fileID: 400006, guid: 05175a4e6deee1947bcd447fc9d9a36a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 05175a4e6deee1947bcd447fc9d9a36a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05175a4e6deee1947bcd447fc9d9a36a, type: 3}
