@@ -5415,11 +5415,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!4 &1095168156 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400018, guid: add6ce879d46cfb4d991460a8c36c3f8,
-    type: 3}
-  m_PrefabInternal: {fileID: 1474599873}
 --- !u!1 &1134750355
 GameObject:
   m_ObjectHideFlags: 0
@@ -7499,6 +7494,7 @@ MonoBehaviour:
   - {fileID: 77253236}
   playerMovement: {fileID: 1858719669}
   anim: {fileID: 1534799567}
+  raging: 0
 --- !u!195 &1534799563
 NavMeshAgent:
   m_ObjectHideFlags: 0
