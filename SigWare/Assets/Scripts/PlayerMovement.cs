@@ -194,6 +194,7 @@ namespace GR19
             //Debug.Log(batterySlider.value);
             batteryImage.fillAmount = batteryImage.fillAmount + 0.001f;
             isCharging = true;
+            Debug.Log("Nurse chasing");
         }
 
         private void OnTriggerEnter(Collider other)     //Détecte la collision avec la zone de la prise

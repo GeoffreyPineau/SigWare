@@ -39,7 +39,7 @@ namespace GR19
 
             
             enemy.destination = points[destPoint].position;     // Déplace la nurse vers la destination
-
+            Debug.Log("nurse GoToNextPoint");
             
             destPoint = (destPoint + 1) % points.Length;           // Choisi le prochain point dans l'array
                                                                    // Boucle jusqu'au début 
@@ -57,6 +57,7 @@ namespace GR19
                 enemy.destination = player.transform.position;
                 //Debug.Log("Chasse du joueur");
                 anim.SetBool("isChasing", true);
+                Debug.Log("Nurse is chasing = true");
             }
         }
 
@@ -67,6 +68,7 @@ namespace GR19
                 playerMovement.Respawn();
                 playerMovement.ResetPlayer();
                 anim.SetBool("isChasing", false);
+                Debug.Log("Nurse is chasing = false");
                 //Debug.Log("Ne chase plus");
                 //playerMovement.batteryImage.fillAmount = playerMovement.batteryImage.fillAmount - playerMovement.respawnMalus;
                 GotoNextPoint();
