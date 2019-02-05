@@ -63,11 +63,6 @@ namespace GR19
             if (debug == true)
             {
                 batteryImage.fillAmount = 100;
-                if (Input.GetKeyDown(KeyCode.R))
-                {
-                    SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
-                    Debug.Log("Reload");
-                }
             }
 
             if (batteryImage.fillAmount == 0)
@@ -76,6 +71,10 @@ namespace GR19
                 Time.timeScale = 0;
             }
 
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+            }
 
         }
 
