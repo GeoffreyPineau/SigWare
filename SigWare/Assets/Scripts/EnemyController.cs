@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Rendering.PostProcessing;
 
 namespace GR19
 {
@@ -21,6 +22,8 @@ namespace GR19
         public Animator anim;
 
 
+        
+
 
 
         void Start() {
@@ -39,7 +42,8 @@ namespace GR19
 
             
             enemy.destination = points[destPoint].position;     // Déplace la nurse vers la destination
-            Debug.Log("nurse GoToNextPoint");
+            //Debug.Log("nurse GoToNextPoint");
+           
             
             destPoint = (destPoint + 1) % points.Length;           // Choisi le prochain point dans l'array
                                                                    // Boucle jusqu'au début 
@@ -57,21 +61,39 @@ namespace GR19
                 enemy.destination = player.transform.position;
                 //Debug.Log("Chasse du joueur");
                 anim.SetBool("isChasing", true);
-                Debug.Log("Nurse is chasing = true");
+                //Debug.Log("Nurse is chasing = true");
             }
         }
 
         private void OnTriggerEnter(Collider other)
         {
-            if(playerMovement.isCharging == true)
+            if(playerMovement.isCharging == true && other == player)
             {
                 playerMovement.Respawn();
-                playerMovement.ResetPlayer();
+                
+               // Debug.Log("Respawn player");
                 anim.SetBool("isChasing", false);
-                Debug.Log("Nurse is chasing = false");
+
+                //playerMovement.ResetPlayer();
+                //Debug.Log("Nurse is chasing = false");
                 //Debug.Log("Ne chase plus");
                 //playerMovement.batteryImage.fillAmount = playerMovement.batteryImage.fillAmount - playerMovement.respawnMalus;
                 GotoNextPoint();
+            }
+        }
+
+        private void OnTriggerStay(Collider other)
+        {
+            if(other == player)
+            {
+                Debug.Log("Collision player");
+            }
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (playerMovement.isCharging == false && other == player)
+            {
             }
         }
 

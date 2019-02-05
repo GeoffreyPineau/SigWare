@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using UnityEngine.Rendering.PostProcessing;
 
 namespace GR19
 {
@@ -69,6 +70,14 @@ namespace GR19
         public GameObject plug1;
         public Animator plugAnim;
 
+        public PostProcessVolume mainCam;
+        Vignette vignette;
+
+        public bool nurseCollided = false;
+        public float vignettage;
+
+        public GameObject defeatText;
+
 
         public void Start()
         {
@@ -76,6 +85,12 @@ namespace GR19
             batteryImage.fillAmount = 0.7f;
             playerTransform = transform;
             isCharging = false;
+
+
+            vignette = ScriptableObject.CreateInstance<Vignette>();
+            vignette.enabled.Override(true);
+            vignette.intensity.Override(0f);
+            mainCam = PostProcessManager.instance.QuickVolume(gameObject.layer, 100f, vignette);
         }
 
         void Update()
@@ -96,6 +111,20 @@ namespace GR19
                 }
                 PlayerMovementNav();
             }
+
+            if(nurseCollided == true)
+            {
+                vignette.intensity.value = vignettage + 0.01f;
+                vignettage = vignettage + 0.01f;
+                Debug.Log(vignettage);
+            }
+
+            if(vignettage >= 1)
+            {
+                defeatText.SetActive(true);
+                Time.timeScale = 0;
+            }
+            
         }
 
         private IEnumerator Dash()
@@ -177,7 +206,7 @@ namespace GR19
             }*/
         }
 
-        public void ResetPlayer()
+        /*public void ResetPlayer()
         {
             canMove = true;
             plug = 0;
@@ -187,14 +216,14 @@ namespace GR19
             lineRenderer.SetPosition(0, plugPosition.position);
             isCharging = false;
             batteryAnim.SetBool("isCharging", false);
-        }
+        }*/
 
         public void ValueChangeCheck()      //MAJ du slider
         {
             //Debug.Log(batterySlider.value);
             batteryImage.fillAmount = batteryImage.fillAmount + 0.001f;
             isCharging = true;
-            Debug.Log("Nurse chasing");
+            //Debug.Log("Nurse chasing");
         }
 
         private void OnTriggerEnter(Collider other)     //Détecte la collision avec la zone de la prise
@@ -209,9 +238,11 @@ namespace GR19
                 if(other == plug1)
                 {
                     plugAnim.SetInteger("State", 1);
-                    Debug.Log("Anim plug material");
+                    //Debug.Log("Anim plug material");
                 }
             }
+
+
             
         }
         private void OnTriggerStay(Collider other)     //Détecte la collision avec la zone de la prise
@@ -224,6 +255,12 @@ namespace GR19
                 Charging();
                 //Debug.Log("collider2");
             }
+
+            if(other.name == "DamageCollider")
+            {
+                nurseCollided = true;
+                Debug.Log("nurse collided = true");
+            }
                 
         }
 
@@ -231,6 +268,15 @@ namespace GR19
         {
             canPlug = false;
             isCharging = false;
+
+            if(other.name == "DamageCollider")
+            {
+                nurseCollided = false;
+                Debug.Log("nurse collided = false");
+                vignette.intensity.value = 0;
+                vignettage = 0;
+
+            }
         }
 
         public void Respawn()       //Respawn player
