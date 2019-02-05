@@ -74,6 +74,7 @@ namespace GR19
             if (Input.GetKeyDown(KeyCode.R))
             {
                 SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+                Time.timeScale = 1;
             }
 
         }
