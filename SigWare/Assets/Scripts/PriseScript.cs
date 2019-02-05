@@ -9,12 +9,14 @@ namespace GR19
     {
 
         public GameObject cable;
+        public Animator pluganim;
 
         private void OnTriggerEnter(Collider other)
         {
             if (other.name == "Player")
             {
                 cable.SetActive(true);
+                pluganim.SetInteger("State", 1);
             }
         }
 
@@ -23,6 +25,7 @@ namespace GR19
             if (other.name == "Player")
             {
                 cable.SetActive(false);
+                pluganim.SetInteger("State", 2);
             }
         }
     }

@@ -66,6 +66,9 @@ namespace GR19
 
         public GameObject ground;
 
+        public GameObject plug1;
+        public Animator plugAnim;
+
 
         public void Start()
         {
@@ -79,7 +82,7 @@ namespace GR19
         {
             //PlugUnplug();       //Fonction stop/démarrer
             //Charging();         //Fonction rechargement
-            Debug.Log(isCharging);
+            //Debug.Log(isCharging);
             //playerTransform.eulerAngles = new Vector3(playerTransform.eulerAngles.x, fixedRotation, playerTransform.eulerAngles.z);
 
             batteryImage.fillAmount = batteryImage.fillAmount - decreasingValue;     //Diminution du slider
@@ -162,7 +165,7 @@ namespace GR19
         {
 
             batteryImage.fillAmount = batteryImage.fillAmount + 0.001f; //(Mathf.Abs(mouseX + mouseY) / chargingModifier) ;      //Retourne la valeur positive du calcul
-            Debug.Log("charging");
+            //Debug.Log("charging");
             
             ValueChangeCheck();                             // Appel la maj du Slider   
 
@@ -201,7 +204,12 @@ namespace GR19
                 //isCharging = true;
                 //ValueChangeCheck();
                 Charging();
-                Debug.Log("collider1");
+                //Debug.Log("collider1");
+                if(other == plug1)
+                {
+                    plugAnim.SetInteger("State", 1);
+                    Debug.Log("Anim plug material");
+                }
             }
             
         }
@@ -213,7 +221,7 @@ namespace GR19
                 //isCharging = true;
                 ValueChangeCheck();
                 Charging();
-                Debug.Log("collider2");
+                //Debug.Log("collider2");
             }
                 
         }

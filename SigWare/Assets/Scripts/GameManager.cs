@@ -53,8 +53,8 @@ namespace GR19
             if (batteryImage.fillAmount >= 0.85f)     //Si amount batteryImage > 85%
             {
                 tutoAnim.SetInteger("State", 1);
-                Debug.Log("State = 1");
-                Debug.Log("changement Anim tuto");
+                //Debug.Log("State = 1");
+                //Debug.Log("changement Anim tuto");
                 nurse.SetActive(true);
                 enemyController.NurseAppear();
                 StartCoroutine(TimerAppear());
@@ -91,7 +91,7 @@ namespace GR19
             {
                 victoryText.SetActive(true);
                 Time.timeScale = 0;
-                Debug.Log("C'est gagné");
+                //Debug.Log("C'est gagné");
             }
             else
             {

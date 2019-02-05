@@ -32,7 +32,7 @@ namespace GR19
 
         void GotoNextPoint()
         {
-            Debug.Log("Patrouille");
+            //Debug.Log("Patrouille");
             
             if (points.Length == 0)     // Return s'il n'y a pas de point de Setup
                 return;
@@ -55,7 +55,7 @@ namespace GR19
             if (playerMovement.isCharging == true)
             {
                 enemy.destination = player.transform.position;
-                Debug.Log("Chasse du joueur");
+                //Debug.Log("Chasse du joueur");
                 anim.SetBool("isChasing", true);
             }
         }
@@ -67,7 +67,7 @@ namespace GR19
                 playerMovement.Respawn();
                 playerMovement.ResetPlayer();
                 anim.SetBool("isChasing", false);
-                Debug.Log("Ne chase plus");
+                //Debug.Log("Ne chase plus");
                 //playerMovement.batteryImage.fillAmount = playerMovement.batteryImage.fillAmount - playerMovement.respawnMalus;
                 GotoNextPoint();
             }
