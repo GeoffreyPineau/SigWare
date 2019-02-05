@@ -78,6 +78,8 @@ namespace GR19
 
         public GameObject defeatText;
 
+        public Animator playerAnim;
+
 
         public void Start()
         {
@@ -118,6 +120,7 @@ namespace GR19
                 defeatText.SetActive(true);
                 Time.timeScale = 0;
             }
+
             
         }
 
@@ -169,12 +172,16 @@ namespace GR19
                     {
                         agent.speed = 4.5f;
                         agent.SetDestination(hit.point);
+                        playerAnim.SetBool("isRunning", true);
+                        Debug.Log("anim run");
                     }
                    
                 }
                 if (hit.collider.gameObject == player)
                 {
                     agent.speed = 0;
+                    playerAnim.SetBool("isRunning", false);
+                    Debug.Log("anim Idle");
                 }
             }
         }
