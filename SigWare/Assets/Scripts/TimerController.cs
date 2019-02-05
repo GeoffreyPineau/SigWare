@@ -32,6 +32,7 @@ namespace GR19
             if(slider.value  <= 8)
             {
                 enemyController.RagingNurseLvl1();
+                enemyController.raging = true;
             }
         }
     }

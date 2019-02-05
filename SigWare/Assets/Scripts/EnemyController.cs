@@ -21,6 +21,8 @@ namespace GR19
 
         public Animator anim;
 
+        public bool raging;
+
 
         
 
@@ -53,15 +55,24 @@ namespace GR19
             //enemy.destination = player.transform.position;        //Fait que la nurse chasse le player
             //nurseTransform.eulerAngles = new Vector3(nurseTransform.eulerAngles.x, fixedRotation, nurseTransform.eulerAngles.z);
 
-            if (!enemy.pathPending && enemy.remainingDistance < 0.5f)
-                GotoNextPoint();
-
-            if (playerMovement.isCharging == true)
+            if(raging == false)
             {
-                enemy.destination = player.transform.position;
-                //Debug.Log("Chasse du joueur");
-                anim.SetBool("isChasing", true);
-                //Debug.Log("Nurse is chasing = true");
+                if (!enemy.pathPending && enemy.remainingDistance < 0.5f)
+                    GotoNextPoint();
+
+                if (playerMovement.isCharging == true)
+                {
+                    enemy.destination = player.transform.position;
+                    //Debug.Log("Chasse du joueur");
+                    anim.SetBool("isChasing", true);
+                    //Debug.Log("Nurse is chasing = true");
+                }
+            }
+            
+
+            if(raging == true)
+            {
+                RagingNurseLvl1();
             }
         }
 
@@ -107,6 +118,7 @@ namespace GR19
         {
             enemy.speed = 6f;
             enemy.angularSpeed = 100000;
+            enemy.destination = player.transform.position;
         }
     }
 }
