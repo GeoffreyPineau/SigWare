@@ -10,6 +10,7 @@ namespace GR19
         public GameManager gameManager;
         public Slider slider;
         public float time = 20f;
+        public EnemyController enemyController;
 
         void Start()
         {
@@ -26,6 +27,11 @@ namespace GR19
             {
                 gameManager.Victory();
                 Debug.Log("Victory Time Controller Script !");
+            }
+
+            if(slider.value  <= 8)
+            {
+                enemyController.RagingNurseLvl1();
             }
         }
     }

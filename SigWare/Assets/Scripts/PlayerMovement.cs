@@ -64,13 +64,15 @@ namespace GR19
 
         public ParticleSystem dustDash;
 
+        public GameObject ground;
+
 
         public void Start()
         {
             batteryImage.fillAmount = batteryCharge;
+            batteryImage.fillAmount = 0.7f;
             playerTransform = transform;
             isCharging = false;
-
         }
 
         void Update()
@@ -91,8 +93,6 @@ namespace GR19
                 }
                 PlayerMovementNav();
             }
-
-
         }
 
         private IEnumerator Dash()
@@ -160,11 +160,10 @@ namespace GR19
 
         private void Charging()
         {
-            //float mouseX = Input.GetAxis("Mouse X");
-            //float mouseY = Input.GetAxis("Mouse Y");
 
             batteryImage.fillAmount = batteryImage.fillAmount + 0.001f; //(Mathf.Abs(mouseX + mouseY) / chargingModifier) ;      //Retourne la valeur positive du calcul
             Debug.Log("charging");
+            
             ValueChangeCheck();                             // Appel la maj du Slider   
 
             /*if (canMove == false)
@@ -191,15 +190,16 @@ namespace GR19
         {
             //Debug.Log(batterySlider.value);
             batteryImage.fillAmount = batteryImage.fillAmount + 0.001f;
+            isCharging = true;
         }
 
         private void OnTriggerEnter(Collider other)     //Détecte la collision avec la zone de la prise
         {
-            if(other != nurse)
+            if(other != nurse && other != ground)
             {
                 canPlug = true;
-                isCharging = true;
-                ValueChangeCheck();
+                //isCharging = true;
+                //ValueChangeCheck();
                 Charging();
                 Debug.Log("collider1");
             }
@@ -207,10 +207,10 @@ namespace GR19
         }
         private void OnTriggerStay(Collider other)     //Détecte la collision avec la zone de la prise
         {
-            if (other != nurse)
+            if (other != nurse && other != ground)
             {
                 canPlug = true;
-                isCharging = true;
+                //isCharging = true;
                 ValueChangeCheck();
                 Charging();
                 Debug.Log("collider2");

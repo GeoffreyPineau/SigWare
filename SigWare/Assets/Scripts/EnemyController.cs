@@ -72,5 +72,17 @@ namespace GR19
                 GotoNextPoint();
             }
         }
+
+        public void NurseAppear()
+        {
+            enemy.speed = 3;
+            enemy.acceleration = 15;
+        }
+
+        public void RagingNurseLvl1()
+        {
+            enemy.speed = 6f;
+            enemy.angularSpeed = 100000;
+        }
     }
 }
