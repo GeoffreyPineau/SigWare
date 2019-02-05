@@ -116,7 +116,7 @@ namespace GR19
             {
                 vignette.intensity.value = vignettage + 0.01f;
                 vignettage = vignettage + 0.01f;
-                Debug.Log(vignettage);
+                //Debug.Log(vignettage);
             }
 
             if(vignettage >= 1)
@@ -259,7 +259,7 @@ namespace GR19
             if(other.name == "DamageCollider")
             {
                 nurseCollided = true;
-                Debug.Log("nurse collided = true");
+                //Debug.Log("nurse collided = true");
             }
                 
         }
@@ -272,7 +272,7 @@ namespace GR19
             if(other.name == "DamageCollider")
             {
                 nurseCollided = false;
-                Debug.Log("nurse collided = false");
+                //Debug.Log("nurse collided = false");
                 vignette.intensity.value = 0;
                 vignettage = 0;
 
