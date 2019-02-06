@@ -77,6 +77,7 @@ namespace GR19
         public float vignettage;
 
         public GameObject defeatText;
+        public GameManager gameManager;
 
         public Animator playerAnim;
 
@@ -116,8 +117,8 @@ namespace GR19
 
             if(vignettage >= 1)
             {
-                defeatText.SetActive(true);
-                Time.timeScale = 0;
+                gameManager.Defeat();
+                //Time.timeScale = 0;
             }
 
             

@@ -12,6 +12,10 @@ namespace GR19
         public Animator pluganim;
         public Animator plugUIAnim;
 
+        public ParticleSystem particle;
+
+        public Animator sickLitAnim;
+
         private void OnTriggerEnter(Collider other)
         {
             if (other.name == "Player")
@@ -19,6 +23,8 @@ namespace GR19
                 cable.SetActive(true);
                 pluganim.SetInteger("State", 1);
                 plugUIAnim.SetBool("isCharging", true);
+                sickLitAnim.SetBool("girlIsHere", true);
+                particle.Emit(12);
             }
         }
 
@@ -29,6 +35,7 @@ namespace GR19
                 cable.SetActive(false);
                 pluganim.SetInteger("State", 2);
                 plugUIAnim.SetBool("isCharging", false);
+                sickLitAnim.SetBool("girlIsHere", false);
             }
         }
     }

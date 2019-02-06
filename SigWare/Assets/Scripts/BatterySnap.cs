@@ -11,14 +11,14 @@ namespace GR19
         public Slider batterySlide;
         public GameObject plugObject;
 
-        Transform t;
+        public Transform t;
         public float fixedRotation = 5;
 
 
         // Use this for initialization
         void Start()
         {
-
+            t = transform;
         }
 
         // Update is called once per frame

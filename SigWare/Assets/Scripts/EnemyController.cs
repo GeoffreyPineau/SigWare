@@ -22,6 +22,7 @@ namespace GR19
         public Animator anim;
 
         public bool raging;
+        public bool nurseActive = true;
 
         void Start() {
             nurseTransform = transform;
@@ -96,7 +97,10 @@ namespace GR19
         {
             enemy.speed = 6f;
             enemy.angularSpeed = 100000;
-            enemy.destination = player.transform.position;
+            if(nurseActive == true)
+            {
+                enemy.destination = player.transform.position;
+            }
         }
     }
 }
