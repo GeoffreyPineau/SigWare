@@ -17,6 +17,8 @@ namespace GR19
         public Image batteryImage;
         public bool debug;
 
+        public GameObject batteryLowImage;
+
         public GameObject nurse;
 
         public GameObject timer;
@@ -64,6 +66,16 @@ namespace GR19
             {
                 SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
                 Time.timeScale = 1;
+            }
+
+            if (batteryImage.fillAmount < 0.25)
+            {
+                batteryLowImage.SetActive(true);
+            }
+
+            if(batteryImage.fillAmount > 0.25)
+            {
+                batteryLowImage.SetActive(false);
             }
 
         }
