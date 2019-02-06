@@ -14,6 +14,8 @@ namespace GR19
         public Transform t;
         public float fixedRotation = 5;
 
+        public GameObject batteryLow;
+
 
         // Use this for initialization
         void Start()
@@ -24,12 +26,24 @@ namespace GR19
         // Update is called once per frame
         void Update()
         {
-            Vector3 batteryPos = Camera.main.WorldToScreenPoint(this.transform.position);
-            batterySlide.transform.position = batteryPos;
+            if(batterySlide != null)
+            {
+                Vector3 batteryPos = Camera.main.WorldToScreenPoint(this.transform.position);
+                batterySlide.transform.position = batteryPos;
+            }
 
-            Vector3 plugPos = Camera.main.WorldToScreenPoint(this.transform.position);
-            plugObject.transform.position = batteryPos;
-            t.eulerAngles = new Vector3(t.eulerAngles.x, fixedRotation, t.eulerAngles.z);
+            if(plugObject != null)
+            {
+                Vector3 plugPos = Camera.main.WorldToScreenPoint(this.transform.position);
+                plugObject.transform.position = plugPos;
+                t.eulerAngles = new Vector3(t.eulerAngles.x, fixedRotation, t.eulerAngles.z);
+            }
+            
+            if(batteryLow != null)
+            {
+                Vector3 batteryLowPos =this.transform.position;
+                batteryLow.transform.position = batteryLowPos;
+            }
         }
     }
 }
