@@ -3176,6 +3176,7 @@ MonoBehaviour:
   pluganim: {fileID: 468827721}
   plugUIAnim: {fileID: 891949201}
   particle: {fileID: 152589020}
+  numberParticle: 5
   sickLitAnim: {fileID: 546412749}
 --- !u!95 &468827721
 Animator:
@@ -6088,6 +6089,7 @@ MonoBehaviour:
   pluganim: {fileID: 789383418}
   plugUIAnim: {fileID: 891949201}
   particle: {fileID: 1058506328}
+  numberParticle: 5
   sickLitAnim: {fileID: 1346354538}
 --- !u!1001 &794201108
 Prefab:
@@ -7949,6 +7951,7 @@ MonoBehaviour:
   pluganim: {fileID: 1031301690}
   plugUIAnim: {fileID: 891949201}
   particle: {fileID: 273171035}
+  numberParticle: 5
   sickLitAnim: {fileID: 228501891}
 --- !u!95 &1031301690
 Animator:
@@ -8176,32 +8179,6 @@ Prefab:
     - target: {fileID: 4934348697234354, guid: 3fcd79dd8eb4e554282c217f0c950dd5, type: 2}
       propertyPath: m_RootOrder
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4934348697234354, guid: 3fcd79dd8eb4e554282c217f0c950dd5, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4934348697234354, guid: 3fcd79dd8eb4e554282c217f0c950dd5, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4934348697234354, guid: 3fcd79dd8eb4e554282c217f0c950dd5, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1389882914863702, guid: 3fcd79dd8eb4e554282c217f0c950dd5, type: 2}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 199132907897507206, guid: 3fcd79dd8eb4e554282c217f0c950dd5,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
-    - target: {fileID: 199132907897507206, guid: 3fcd79dd8eb4e554282c217f0c950dd5,
-        type: 2}
-      propertyPath: m_Materials.Array.data[1]
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fcd79dd8eb4e554282c217f0c950dd5, type: 2}
@@ -11822,6 +11799,7 @@ MonoBehaviour:
   pluganim: {fileID: 1465175341}
   plugUIAnim: {fileID: 891949201}
   particle: {fileID: 2004204365}
+  numberParticle: 5
   sickLitAnim: {fileID: 380036555}
 --- !u!95 &1465175341
 Animator:
@@ -14394,10 +14372,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 1389882914863702, guid: 3fcd79dd8eb4e554282c217f0c950dd5, type: 2}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fcd79dd8eb4e554282c217f0c950dd5, type: 2}
   m_IsPrefabAsset: 0
@@ -16185,6 +16159,7 @@ MonoBehaviour:
   pluganim: {fileID: 1938300423}
   plugUIAnim: {fileID: 891949201}
   particle: {fileID: 1402870586}
+  numberParticle: 5
   sickLitAnim: {fileID: 1811323564}
 --- !u!95 &1938300423
 Animator:

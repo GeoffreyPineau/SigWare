@@ -12,7 +12,9 @@ namespace GR19
         public Animator pluganim;
         public Animator plugUIAnim;
 
+
         public ParticleSystem particle;
+        public int numberParticle;
 
         public Animator sickLitAnim;
 
@@ -24,7 +26,7 @@ namespace GR19
                 pluganim.SetInteger("State", 1);
                 plugUIAnim.SetBool("isCharging", true);
                 sickLitAnim.SetBool("girlIsHere", true);
-                particle.Emit(12);
+                particle.Emit(numberParticle);
             }
         }
 
