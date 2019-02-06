@@ -11,6 +11,10 @@ namespace GR19
         public Slider batterySlide;
         public GameObject plugObject;
 
+        Transform t;
+        public float fixedRotation = 5;
+
+
         // Use this for initialization
         void Start()
         {
@@ -25,6 +29,7 @@ namespace GR19
 
             Vector3 plugPos = Camera.main.WorldToScreenPoint(this.transform.position);
             plugObject.transform.position = batteryPos;
+            t.eulerAngles = new Vector3(t.eulerAngles.x, fixedRotation, t.eulerAngles.z);
         }
     }
 }
