@@ -51,13 +51,14 @@ namespace GR19
                 if (playerMovement.isCharging == true)
                 {
                     enemy.destination = player.transform.position;
-                    anim.SetBool("isChasing", true);
+                    //anim.SetBool("isChasing", true);
                 }
             }
             
 
             if(raging == true)
             {
+                anim.SetBool("isChasing", true);
                 RagingNurseLvl1();
             }
         }
