@@ -49,13 +49,9 @@ namespace GR19
 
         public bool canPlug;
 
-        public Animator pointLightAnim;
-
         public Animator nurseAnim;
 
         public LineRenderer lineRenderer;
-
-        public Transform plugPosition;
 
         public bool isCharging = false;
         public Animator batteryAnim;
@@ -140,9 +136,7 @@ namespace GR19
             {
                 gameObject.GetComponent<NavMeshAgent>().isStopped = true;
                 plug = 1;
-                pointLightAnim.SetBool("isCharging", true);
                 lineRenderer.SetPosition(0, transform.position);
-                lineRenderer.SetPosition(1, plugPosition.position);
                 batteryAnim.SetBool("isCharging", true);
             }
 
@@ -150,9 +144,7 @@ namespace GR19
             {
                 plug = 0;
                 gameObject.GetComponent<NavMeshAgent>().isStopped = false;
-                pointLightAnim.SetBool("isCharging", false);
                 lineRenderer.SetPosition(0, transform.position);
-                lineRenderer.SetPosition(0, plugPosition.position);
                 isCharging = false;
                 nurseAnim.SetBool("isChasing", false);
                 batteryAnim.SetBool("isCharging", false);

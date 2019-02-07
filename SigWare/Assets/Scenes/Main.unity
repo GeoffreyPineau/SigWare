@@ -905,7 +905,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 159932ad2dedd824d88ce2c7b8e94de1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  endPoint: {fileID: 0}
+  endPoint: {fileID: 1555221165}
   cableMaterial: {fileID: 2100000, guid: 9d2ef31a7f0f156438a7f15ad14d5813, type: 2}
   cableLength: 2
   totalSegments: 12
@@ -4914,7 +4914,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 159932ad2dedd824d88ce2c7b8e94de1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  endPoint: {fileID: 0}
+  endPoint: {fileID: 189787290}
   cableMaterial: {fileID: 2100000, guid: 9d2ef31a7f0f156438a7f15ad14d5813, type: 2}
   cableLength: 2
   totalSegments: 12
@@ -6054,7 +6054,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chargingTexture: {fileID: 2800000, guid: 4b88fa9e5abd95b49b927348e06bb50b, type: 3}
   defaultTexture: {fileID: 2800000, guid: 42663b47e8bac7d48b9628fb8d639f1f, type: 3}
-  cam: {fileID: 0}
+  cam: {fileID: 1460955097}
   plugs: {fileID: 468827714}
   curMode: 0
   hotSpot: {x: 0, y: 0}
@@ -10622,7 +10622,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chargingTexture: {fileID: 2800000, guid: 4b88fa9e5abd95b49b927348e06bb50b, type: 3}
   defaultTexture: {fileID: 2800000, guid: 42663b47e8bac7d48b9628fb8d639f1f, type: 3}
-  cam: {fileID: 0}
+  cam: {fileID: 1460955097}
   plugs: {fileID: 789383412}
   curMode: 0
   hotSpot: {x: 0, y: 0}
@@ -11048,7 +11048,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 159932ad2dedd824d88ce2c7b8e94de1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  endPoint: {fileID: 0}
+  endPoint: {fileID: 1474979946}
   cableMaterial: {fileID: 2100000, guid: 9d2ef31a7f0f156438a7f15ad14d5813, type: 2}
   cableLength: 2
   totalSegments: 12
@@ -13939,7 +13939,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chargingTexture: {fileID: 2800000, guid: 4b88fa9e5abd95b49b927348e06bb50b, type: 3}
   defaultTexture: {fileID: 2800000, guid: 42663b47e8bac7d48b9628fb8d639f1f, type: 3}
-  cam: {fileID: 0}
+  cam: {fileID: 1460955097}
   plugs: {fileID: 1031301683}
   curMode: 0
   hotSpot: {x: 0, y: 0}
@@ -16875,7 +16875,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 159932ad2dedd824d88ce2c7b8e94de1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  endPoint: {fileID: 0}
+  endPoint: {fileID: 1692485185}
   cableMaterial: {fileID: 2100000, guid: 9d2ef31a7f0f156438a7f15ad14d5813, type: 2}
   cableLength: 2
   totalSegments: 12
@@ -20846,7 +20846,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chargingTexture: {fileID: 2800000, guid: 4b88fa9e5abd95b49b927348e06bb50b, type: 3}
   defaultTexture: {fileID: 2800000, guid: 42663b47e8bac7d48b9628fb8d639f1f, type: 3}
-  cam: {fileID: 0}
+  cam: {fileID: 1460955097}
   plugs: {fileID: 1465175334}
   curMode: 0
   hotSpot: {x: 0, y: 0}
@@ -24084,7 +24084,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 159932ad2dedd824d88ce2c7b8e94de1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  endPoint: {fileID: 0}
+  endPoint: {fileID: 500983087}
   cableMaterial: {fileID: 2100000, guid: 9d2ef31a7f0f156438a7f15ad14d5813, type: 2}
   cableLength: 2
   totalSegments: 12
@@ -26787,10 +26787,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1858719664}
   nurse: {fileID: 1534799561}
-  playerTransform: {fileID: 0}
+  playerTransform: {fileID: 1858719668}
   rb: {fileID: 1858719670}
   fixedRotation: 5
-  cam: {fileID: 0}
+  cam: {fileID: 1460955097}
   agent: {fileID: 1858719671}
   batterySlider: {fileID: 819564643}
   batteryImage: {fileID: 1022460249}
@@ -26803,10 +26803,8 @@ MonoBehaviour:
   chargingModifier: 500
   respawnPoint: {fileID: 781471860}
   canPlug: 0
-  pointLightAnim: {fileID: 0}
   nurseAnim: {fileID: 1534799567}
   lineRenderer: {fileID: 1317202514}
-  plugPosition: {fileID: 0}
   isCharging: 0
   batteryAnim: {fileID: 1357626090}
   respawnMalus: 0.01
@@ -26814,7 +26812,7 @@ MonoBehaviour:
   ground: {fileID: 555524850}
   plug1: {fileID: 468827714}
   plugAnim: {fileID: 468827721}
-  mainCam: {fileID: 0}
+  mainCam: {fileID: 1460955092}
   nurseCollided: 0
   vignettage: 0
   defeatText: {fileID: 1527890420}
@@ -27756,7 +27754,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chargingTexture: {fileID: 2800000, guid: 4b88fa9e5abd95b49b927348e06bb50b, type: 3}
   defaultTexture: {fileID: 2800000, guid: 42663b47e8bac7d48b9628fb8d639f1f, type: 3}
-  cam: {fileID: 0}
+  cam: {fileID: 1460955097}
   plugs: {fileID: 1938300416}
   curMode: 0
   hotSpot: {x: 0, y: 0}
