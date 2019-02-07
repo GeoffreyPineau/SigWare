@@ -18,6 +18,7 @@ namespace GR19
         public bool debug;
 
         public GameObject batteryLowImage;
+        bool batteryLowAppeared = false;
 
         public GameObject nurse;
 
@@ -30,6 +31,7 @@ namespace GR19
 
         public PlayerMovement playerMovement;
         public EnemyController enemyController;
+        public BatterySnap batterySnap;
 
 
         void Start()
@@ -68,9 +70,12 @@ namespace GR19
                 Time.timeScale = 1;
             }
 
-            if (batteryImage.fillAmount < 0.25)
+            if (batteryImage.fillAmount < 0.25 && batteryLowAppeared == false)
             {
                 batteryLowImage.SetActive(true);
+                batteryLowAppeared = true;
+                batterySnap.batteryLowAppearedSnap = true;
+                StartCoroutine(BatteryLowDisapeared());
             }
 
             if(batteryImage.fillAmount > 0.25)
@@ -78,6 +83,13 @@ namespace GR19
                 batteryLowImage.SetActive(false);
             }
 
+        }
+
+        private IEnumerator BatteryLowDisapeared()
+        {
+            yield return new WaitForSeconds(1);
+            batterySnap.batteryLowAppearedSnap = false;
+            batteryLowAppeared = false;
         }
 
         private IEnumerator TimerAppear()

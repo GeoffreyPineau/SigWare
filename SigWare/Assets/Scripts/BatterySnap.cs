@@ -16,6 +16,8 @@ namespace GR19
 
         public GameObject batteryLow;
 
+        public bool batteryLowAppearedSnap = false;
+
 
         // Use this for initialization
         void Start()
@@ -38,10 +40,10 @@ namespace GR19
                 plugObject.transform.position = plugPos;
                 t.eulerAngles = new Vector3(t.eulerAngles.x, fixedRotation, t.eulerAngles.z);
             }
-            
-            if(batteryLow != null)
+
+            if (batteryLow != null )
             {
-                Vector3 batteryLowPos =this.transform.position;
+                Vector3 batteryLowPos = Camera.main.WorldToScreenPoint(this.transform.position);
                 batteryLow.transform.position = batteryLowPos;
             }
         }
