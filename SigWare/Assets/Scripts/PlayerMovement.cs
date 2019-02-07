@@ -130,7 +130,8 @@ namespace GR19
             yield return new WaitForSeconds(0.12f);
             dashing = false;
             agent.speed = 4.5f ;            // Reset la valeur du navMeshAgent.speed
-            dustDash.Play();
+            dustDash.Emit(1);
+            dashing = false;
         }
 
         private void PlugUnplug()
