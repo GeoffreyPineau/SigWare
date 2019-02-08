@@ -34,8 +34,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1389882914863702}
-  m_LocalRotation: {x: -0.7049382, y: 0.055337463, z: 0.055337463, w: 0.7049382}
-  m_LocalPosition: {x: 1.5, y: 0.62, z: 3.7}
+  m_LocalRotation: {x: -0.53759605, y: -0.45933706, z: -0.45933706, w: 0.53759605}
+  m_LocalPosition: {x: 3.21, y: 1.2363316, z: 3.27}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1484,7 +1484,9 @@ ParticleSystem:
     flipV: 0
     randomRow: 1
     sprites:
-    - sprite: {fileID: 21300000, guid: 39a7d2417dfc52b4388ee1893d7e66ea, type: 3}
+    - sprite: {fileID: 21300000, guid: 48640634de75bf24aaa68b78f9108111, type: 3}
+    - sprite: {fileID: 21300002, guid: 48640634de75bf24aaa68b78f9108111, type: 3}
+    - sprite: {fileID: 21300004, guid: 48640634de75bf24aaa68b78f9108111, type: 3}
   VelocityModule:
     enabled: 0
     x:

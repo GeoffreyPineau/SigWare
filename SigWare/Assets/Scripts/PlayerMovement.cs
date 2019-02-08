@@ -202,7 +202,6 @@ namespace GR19
                 if(other == plug1)
                 {
                     plugAnim.SetInteger("State", 1);
-                    
                 }
             }
 

@@ -16,6 +16,8 @@ namespace GR19
         public ParticleSystem particle;
         public int numberParticle;
 
+        bool particleEmit = false;
+
         public Animator sickLitAnim;
 
         private void OnTriggerEnter(Collider other)
@@ -26,7 +28,12 @@ namespace GR19
                 pluganim.SetInteger("State", 1);
                 plugUIAnim.SetBool("isCharging", true);
                 sickLitAnim.SetBool("girlIsHere", true);
-                particle.Emit(numberParticle);
+                if(particleEmit == false)
+                {
+                    particle.Emit(numberParticle);
+                    particleEmit = true;
+                    Debug.Log("EmitGhost");
+                }
             }
         }
 
@@ -38,6 +45,7 @@ namespace GR19
                 pluganim.SetInteger("State", 2);
                 plugUIAnim.SetBool("isCharging", false);
                 sickLitAnim.SetBool("girlIsHere", false);
+                particleEmit = false;
             }
         }
     }
