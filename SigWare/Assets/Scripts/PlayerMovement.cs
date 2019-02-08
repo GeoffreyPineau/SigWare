@@ -12,6 +12,7 @@ namespace GR19
 
         public GameObject player;
         public GameObject nurse;
+        public GameObject batteryUI;
         public Transform playerTransform;
 
         public Rigidbody rb;
@@ -77,12 +78,16 @@ namespace GR19
 
         public Animator playerAnim;
 
+        public bool tutoEnded = false;
+
         public void Start()
         {
             batteryImage.fillAmount = batteryCharge;
             batteryImage.fillAmount = 0.7f;
             playerTransform = transform;
             isCharging = false;
+
+            batteryUI.SetActive(false);
 
 
             vignette = ScriptableObject.CreateInstance<Vignette>();
@@ -93,7 +98,15 @@ namespace GR19
 
         void Update()
         {
-            batteryImage.fillAmount = batteryImage.fillAmount - decreasingValue;     //Diminution du slider
+
+            if(tutoEnded == false)
+            {
+                StartCoroutine(EndIntro());
+            }
+            if(tutoEnded == true)
+            {
+                batteryImage.fillAmount = batteryImage.fillAmount - decreasingValue;     //Diminution du slider
+            }
 
             if (canMove == true && plug == 0)
             {
@@ -118,6 +131,14 @@ namespace GR19
             }
 
             
+        }
+
+        private IEnumerator EndIntro()
+        {
+            
+            yield return new WaitForSeconds(4f);
+            tutoEnded = true;
+            batteryUI.SetActive(true);
         }
 
         private IEnumerator Dash()
