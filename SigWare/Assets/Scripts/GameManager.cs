@@ -18,6 +18,8 @@ namespace GR19
         public bool debug;
 
         public GameObject batteryLowImage;
+        public GameObject battery;
+        public GameObject player;
         bool batteryLowAppeared = false;
 
         public GameObject nurse;
@@ -121,6 +123,8 @@ namespace GR19
         private IEnumerator VictoryScreen()
         {
             enemyController.nurseActive = false;
+            player.SetActive(false);
+            battery.SetActive(false);
             victoryText.SetActive(true);
             nurse.SetActive(false);
             yield return new WaitForSeconds(3f);
@@ -139,6 +143,8 @@ namespace GR19
         private IEnumerator DefeatScreen()
         {
             defeatText.SetActive(true);
+            battery.SetActive(false);
+            player.SetActive(false);
             nurse.SetActive(false);
             yield return new WaitForSeconds(3f);
             int callingLevelManager = 0;
