@@ -24,6 +24,11 @@ namespace GR19
         public bool raging;
         public bool nurseActive = true;
 
+
+        public float enemySpeed;
+        public float enemyAcceleration;
+        public float enemyRagingSpeed;
+
         void Start() {
             nurseTransform = transform;
             enemy = GetComponent<NavMeshAgent>();
@@ -43,7 +48,13 @@ namespace GR19
 
         void Update() {
 
-            if(raging == false)
+            if (raging == true)
+            {
+                anim.SetBool("isChasing", true);
+                RagingNurseLvl1();
+            }
+
+            if (raging == false)
             {
                 if (!enemy.pathPending && enemy.remainingDistance < 0.5f)
                     GotoNextPoint();
@@ -53,13 +64,6 @@ namespace GR19
                     enemy.destination = player.transform.position;
                     //anim.SetBool("isChasing", true);
                 }
-            }
-            
-
-            if(raging == true)
-            {
-                anim.SetBool("isChasing", true);
-                RagingNurseLvl1();
             }
         }
 
@@ -81,23 +85,15 @@ namespace GR19
             }
         }
 
-        private void OnTriggerExit(Collider other)
-        {
-            if (playerMovement.isCharging == false && other == player)
-            {
-            }
-        }
-
         public void NurseAppear()
         {
-            enemy.speed = 3;
-            enemy.acceleration = 15;
+                enemy.speed = enemySpeed;
+                enemy.acceleration = enemyAcceleration;
         }
 
         public void RagingNurseLvl1()
         {
-            enemy.speed = 6f;
-            enemy.angularSpeed = 100000;
+            enemy.speed = enemyRagingSpeed;
             if(nurseActive == true)
             {
                 enemy.destination = player.transform.position;

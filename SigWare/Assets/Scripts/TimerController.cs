@@ -10,6 +10,7 @@ namespace GR19
         public GameManager gameManager;
         public Slider slider;
         public float time = 20f;
+        public int ragingTiming;
         public EnemyController enemyController;
 
         void Start()
@@ -28,7 +29,7 @@ namespace GR19
                 gameManager.Victory();
             }
 
-            if(slider.value  <= 8)
+            if(slider.value  <= ragingTiming)
             {
                 enemyController.RagingNurseLvl1();
                 enemyController.raging = true;

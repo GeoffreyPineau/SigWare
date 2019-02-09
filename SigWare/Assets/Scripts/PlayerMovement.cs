@@ -43,7 +43,7 @@ namespace GR19
 
         public float batteryValue = 0.7f;
 
-        [Range(100f, 500f)]
+        [Range(0f, 1f)]
         public float chargingModifier;
 
         public GameObject respawnPoint;
@@ -129,8 +129,6 @@ namespace GR19
                 gameManager.Defeat();
                 //Time.timeScale = 0;
             }
-
-            
         }
 
         private IEnumerator EndIntro()
@@ -151,7 +149,7 @@ namespace GR19
             dashing = false;
         }
 
-        private void PlugUnplug()
+        /*private void PlugUnplug()
         {
             if (Input.GetMouseButtonDown(0) && plug == 0 && canPlug == true)       //Clic gauche pour Stop
             {
@@ -171,7 +169,7 @@ namespace GR19
                 batteryAnim.SetBool("isCharging", false);
             }
 
-        }
+        }*/
 
         private void PlayerMovementNav()        //Mouvement du Player
         {
@@ -203,20 +201,20 @@ namespace GR19
         private void Charging()
         {
 
-            batteryImage.fillAmount = batteryImage.fillAmount + 0.001f; //(Mathf.Abs(mouseX + mouseY) / chargingModifier) ;      //Retourne la valeur positive du calcul
+            batteryImage.fillAmount = batteryImage.fillAmount + chargingModifier; //(Mathf.Abs(mouseX + mouseY) / chargingModifier) ;      //Retourne la valeur positive du calcul
             
             ValueChangeCheck();                             // Appel la maj du Slider   
         }
 
         public void ValueChangeCheck()      //MAJ du slider
         {
-            batteryImage.fillAmount = batteryImage.fillAmount + 0.001f;
+            batteryImage.fillAmount = batteryImage.fillAmount + chargingModifier;
             isCharging = true;
         }
 
         private void OnTriggerEnter(Collider other)     //Détecte la collision avec la zone de la prise
         {
-            if(other != nurse && other != ground)
+            if(other != nurse && other.name != "DamageCollider")
             {
                 canPlug = true;
                 Charging();
@@ -231,7 +229,7 @@ namespace GR19
         }
         private void OnTriggerStay(Collider other)     //Détecte la collision avec la zone de la prise
         {
-            if (other != nurse && other != ground)
+            if (other != nurse && other.name != "DamageCollider")
             {
                 canPlug = true;
                 ValueChangeCheck();
@@ -241,6 +239,7 @@ namespace GR19
             if(other.name == "DamageCollider")
             {
                 nurseCollided = true;
+                batteryImage.fillAmount = batteryImage.fillAmount - decreasingValue;
             }
                 
         }
@@ -255,7 +254,6 @@ namespace GR19
                 nurseCollided = false;
                 vignette.intensity.value = 0;
                 vignettage = 0;
-
             }
         }
 

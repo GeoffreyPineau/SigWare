@@ -8,7 +8,6 @@ namespace GR19
 {
     public class GameManager : MonoBehaviour
     {
-
         public GameObject ui;
         public Slider slider;
         public bool tuto = true;

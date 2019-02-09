@@ -23376,6 +23376,9 @@ MonoBehaviour:
   anim: {fileID: 1534799567}
   raging: 0
   nurseActive: 0
+  enemySpeed: 6
+  enemyAcceleration: 100
+  enemyRagingSpeed: 7
 --- !u!195 &1534799563
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -28416,13 +28419,13 @@ MonoBehaviour:
   agent: {fileID: 1858719671}
   batterySlider: {fileID: 819564643}
   batteryImage: {fileID: 1022460249}
-  decreasingValue: 0.0013
+  decreasingValue: 0.0025
   speed: 0
   thrust: 800
   canMove: 1
   batteryCharge: 20
   batteryValue: 0
-  chargingModifier: 500
+  chargingModifier: 0.0012
   respawnPoint: {fileID: 781471860}
   canPlug: 0
   nurseAnim: {fileID: 1534799567}
@@ -30482,6 +30485,7 @@ MonoBehaviour:
   gameManager: {fileID: 609328492}
   slider: {fileID: 2037131738}
   time: 20
+  ragingTiming: 13
   enemyController: {fileID: 1534799562}
 --- !u!114 &2037131738
 MonoBehaviour:
