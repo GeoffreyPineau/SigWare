@@ -741,7 +741,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 140, y: -101}
+  m_AnchoredPosition: {x: 420, y: -101}
   m_SizeDelta: {x: 1502, y: 581.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &45351046
@@ -765,8 +765,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Influencer
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e414b8a7476129840bd1e065cf5d18d0, type: 2}
-  m_sharedMaterial: {fileID: 21768929862636148, guid: e414b8a7476129840bd1e065cf5d18d0,
+  m_fontAsset: {fileID: 11400000, guid: 179050809a222f04789af54233f5858c, type: 2}
+  m_sharedMaterial: {fileID: 21466025987047480, guid: 179050809a222f04789af54233f5858c,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -26445,7 +26445,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 133, y: -129}
+  m_AnchoredPosition: {x: 133, y: 31}
   m_SizeDelta: {x: 1502, y: 581.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1704124430
@@ -26469,8 +26469,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Battery or die !
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e414b8a7476129840bd1e065cf5d18d0, type: 2}
-  m_sharedMaterial: {fileID: 21768929862636148, guid: e414b8a7476129840bd1e065cf5d18d0,
+  m_fontAsset: {fileID: 11400000, guid: 179050809a222f04789af54233f5858c, type: 2}
+  m_sharedMaterial: {fileID: 21466025987047480, guid: 179050809a222f04789af54233f5858c,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -26543,7 +26543,7 @@ MonoBehaviour:
     linkCount: 0
     lineCount: 1
     pageCount: 1
-    materialCount: 2
+    materialCount: 1
   m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
