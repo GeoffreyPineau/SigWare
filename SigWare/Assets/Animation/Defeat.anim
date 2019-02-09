@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Victoire
+  m_Name: Defeat
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -21,7 +21,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -773
+        value: -1253
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -29,8 +29,8 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.6666667
-        value: -207
+        time: 0.5833333
+        value: -400
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -41,7 +41,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.x
-    path: VictoryText/BackGroundGreen
+    path: DefeatText/BackGround
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -49,7 +49,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -503
+        value: -665
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -57,26 +57,26 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.41666666
-        value: -485
-        inSlope: 78.545456
-        outSlope: 78.545456
+        time: 0.6333333
+        value: -660
+        inSlope: 20.689655
+        outSlope: 20.689655
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.9166667
-        value: -32
-        inSlope: 30.967743
-        outSlope: 30.967743
+        time: 0.96666664
+        value: 71
+        inSlope: 62.535206
+        outSlope: 62.535206
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 3
-        value: -12
+        value: 108
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -87,7 +87,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.x
-    path: VictoryText/You win_ (2)
+    path: DefeatText/FlashLose
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -95,7 +95,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -491.40005
+        value: -664.99994
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -103,26 +103,26 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.41666666
-        value: -473.4
-        inSlope: 78.54572
-        outSlope: 78.54572
+        time: 0.6333333
+        value: -659.99994
+        inSlope: 20.689657
+        outSlope: 20.689657
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.9166667
-        value: -20.400005
-        inSlope: 30.967743
-        outSlope: 30.967743
+        time: 0.96666664
+        value: 71
+        inSlope: 62.53518
+        outSlope: 62.53518
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 3
-        value: -0.40001106
+        value: 107.999985
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -133,7 +133,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.x
-    path: VictoryText/You win_
+    path: DefeatText/PhoneLose
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -141,7 +141,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -421
+        value: -622
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -149,19 +149,19 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.9
-        value: -439
-        inSlope: 0
-        outSlope: 0
+        time: 1.5
+        value: -604
+        inSlope: 43.2
+        outSlope: 43.2
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1.0666667
-        value: -236
-        inSlope: 130.9524
-        outSlope: 130.9524
+        time: 1.6666666
+        value: -192
+        inSlope: 74.66667
+        outSlope: 74.66667
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
@@ -179,7 +179,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.x
-    path: VictoryText/Image
+    path: DefeatText/You loose
     classID: 224
     script: {fileID: 0}
   m_PPtrCurves: []
@@ -191,28 +191,28 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 2266627948
+      path: 1622156078
       attribute: 1460864421
       script: {fileID: 0}
       typeID: 224
       customType: 28
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 3563145804
+      path: 601429910
       attribute: 1460864421
       script: {fileID: 0}
       typeID: 224
       customType: 28
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 797614857
+      path: 1873710142
       attribute: 1460864421
       script: {fileID: 0}
       typeID: 224
       customType: 28
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 4048986550
+      path: 2158229825
       attribute: 1460864421
       script: {fileID: 0}
       typeID: 224
@@ -245,7 +245,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -773
+        value: -1253
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -253,8 +253,8 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.6666667
-        value: -207
+        time: 0.5833333
+        value: -400
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -265,7 +265,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.x
-    path: VictoryText/BackGroundGreen
+    path: DefeatText/BackGround
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -273,7 +273,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -503
+        value: -665
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -281,26 +281,26 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.41666666
-        value: -485
-        inSlope: 78.545456
-        outSlope: 78.545456
+        time: 0.6333333
+        value: -660
+        inSlope: 20.689655
+        outSlope: 20.689655
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.9166667
-        value: -32
-        inSlope: 30.967743
-        outSlope: 30.967743
+        time: 0.96666664
+        value: 71
+        inSlope: 62.535206
+        outSlope: 62.535206
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 3
-        value: -12
+        value: 108
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -311,7 +311,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.x
-    path: VictoryText/You win_ (2)
+    path: DefeatText/FlashLose
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -319,7 +319,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -491.40005
+        value: -664.99994
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -327,26 +327,26 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.41666666
-        value: -473.4
-        inSlope: 78.54572
-        outSlope: 78.54572
+        time: 0.6333333
+        value: -659.99994
+        inSlope: 20.689657
+        outSlope: 20.689657
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.9166667
-        value: -20.400005
-        inSlope: 30.967743
-        outSlope: 30.967743
+        time: 0.96666664
+        value: 71
+        inSlope: 62.53518
+        outSlope: 62.53518
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 3
-        value: -0.40001106
+        value: 107.999985
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -357,7 +357,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.x
-    path: VictoryText/You win_
+    path: DefeatText/PhoneLose
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -365,7 +365,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -421
+        value: -622
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -373,19 +373,19 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.9
-        value: -439
-        inSlope: 0
-        outSlope: 0
+        time: 1.5
+        value: -604
+        inSlope: 43.2
+        outSlope: 43.2
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1.0666667
-        value: -236
-        inSlope: 130.9524
-        outSlope: 130.9524
+        time: 1.6666666
+        value: -192
+        inSlope: 74.66667
+        outSlope: 74.66667
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
@@ -403,7 +403,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.x
-    path: VictoryText/Image
+    path: DefeatText/You loose
     classID: 224
     script: {fileID: 0}
   m_EulerEditorCurves: []

@@ -14,6 +14,8 @@ namespace GR19
         public bool tuto = true;
         public GameObject defeatText;
         public GameObject victoryText;
+        public GameObject victoryCam;
+        public GameObject defeatCam;
         public Image batteryImage;
         public bool debug;
 
@@ -34,6 +36,9 @@ namespace GR19
         public PlayerMovement playerMovement;
         public EnemyController enemyController;
         public BatterySnap batterySnap;
+
+        public bool callingLevelManagerDefeat;
+        public bool callingLevelManagerVictory;
 
 
         void Start()
@@ -74,7 +79,10 @@ namespace GR19
 
             if (batteryImage.fillAmount < 0.25 && batteryLowAppeared == false)
             {
-                batteryLowImage.SetActive(true);
+                if(callingLevelManagerDefeat == false)
+                {
+                    batteryLowImage.SetActive(true);
+                }
                 batteryLowAppeared = true;
                 batterySnap.batteryLowAppearedSnap = true;
                 StartCoroutine(BatteryLowDisapeared());
@@ -102,7 +110,11 @@ namespace GR19
 
         public void Defeat()
         {
-            StartCoroutine(DefeatScreen());
+            if(callingLevelManagerDefeat == false)
+            {
+                StartCoroutine(DefeatScreen(callingLevelManagerDefeat));
+            }
+            callingLevelManagerDefeat = true;
         }
 
         public void Victory()
@@ -110,8 +122,11 @@ namespace GR19
             if (batteryImage.fillAmount > 0)
             {
                 //Debug.Log("C'est gagné");
-                StartCoroutine(VictoryScreen());
-
+                if(callingLevelManagerVictory == false)
+                {
+                    StartCoroutine(VictoryScreen(callingLevelManagerVictory));
+                }
+                callingLevelManagerVictory = true;
             }
             else
             {
@@ -120,41 +135,45 @@ namespace GR19
             }
         }
 
-        private IEnumerator VictoryScreen()
+        private IEnumerator VictoryScreen(bool callingLevelManagerVictory)
         {
             enemyController.nurseActive = false;
+            batteryLowImage.SetActive(false);
+            victoryCam.SetActive(true);
             player.SetActive(false);
             battery.SetActive(false);
             victoryText.SetActive(true);
             nurse.SetActive(false);
             yield return new WaitForSeconds(3f);
-            int callingLevelManager = 0;
-            if (callingLevelManager == 0)
+
+            if (callingLevelManagerVictory == false)
             {
-                callingLevelManager++;
+                callingLevelManagerVictory = true;
 #if SIGWARE
       LevelManager.Instance.Lose();
 #endif
-                Debug.Log("call WIN" + callingLevelManager);
+                Debug.Log("call WIN" + callingLevelManagerVictory);
             }
 
         }
 
-        private IEnumerator DefeatScreen()
+        private IEnumerator DefeatScreen(bool callingLevelManagerDefeat)
         {
             defeatText.SetActive(true);
+            batteryLowImage.SetActive(false);
+            defeatCam.SetActive(true);
             battery.SetActive(false);
             player.SetActive(false);
             nurse.SetActive(false);
             yield return new WaitForSeconds(3f);
-            int callingLevelManager = 0;
-            if (callingLevelManager == 0)
+
+            if (callingLevelManagerDefeat == false)
             {
-                callingLevelManager++;
+                callingLevelManagerDefeat = true;
 #if SIGWARE
       LevelManager.Instance.Lose();
 #endif
-                Debug.Log("call LOSE" + callingLevelManager);
+                Debug.Log("call LOSE" + callingLevelManagerDefeat);
             }
 
         }
